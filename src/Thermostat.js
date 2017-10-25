@@ -1,10 +1,11 @@
 function Thermostat(){
   this.temperature = 20;
-  this._powerSaving = false;
-}
+  this.setPowerSavingOn();
+} 
 
 Thermostat.prototype.upTemperature = function(){
-  if(this.isPowerSaving() && this.temperature == 25) throw Error("Power Saving Mode ON, temperature cannot be greater than 25") ;
+  if(this.isPowerSavingOn() && this.temperature == 25) throw Error("Power Saving Mode ON, temperature cannot be greater than 25") ;
+  if(this.temperature == 32) throw Error("Cannot increase the temperature above 32");
   this.temperature += 1;
 }
 
@@ -13,10 +14,14 @@ Thermostat.prototype.downTemperature = function(){
   this.temperature -= 1;
 }
 
-Thermostat.prototype.setPowerSaving = function(){
+Thermostat.prototype.setPowerSavingOn = function(){
   this._powerSaving = true;
 }
 
-Thermostat.prototype.isPowerSaving = function() {
+Thermostat.prototype.isPowerSavingOn = function() {
   return this._powerSaving;
+}
+
+Thermostat.prototype.setPowerSavingOff = function() {
+  this._powerSaving = false;
 }

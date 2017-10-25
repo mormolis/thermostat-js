@@ -26,17 +26,33 @@ describe("Thermostat", function(){
     expect(function(){thermostat.downTemperature()}).toThrowError("Temperature cannot fall bellow 10");
   });
 
-  it("#setPowerSaving should turn on power saving mode", function(){
-    thermostat.setPowerSaving();
-    expect(thermostat.isPowerSaving()).toEqual(true);
+  it("#setPowerSavingOn should turn on power saving mode", function(){
+    thermostat.setPowerSavingOn();
+    expect(thermostat.isPowerSavingOn()).toEqual(true);
   });
 
   it("does not allow temperature to be more than 25 degrees when power saving mode is on", function(){
-    thermostat.setPowerSaving();
+    thermostat.setPowerSavingOn();
     for(var i = 0; i < 5; i++){
       thermostat.upTemperature();
     }
     expect(function(){ thermostat.upTemperature() }).toThrowError("Power Saving Mode ON, temperature cannot be greater than 25");
+  });
+
+  it("allows temperature to be more than 25 degrees when power saving mode is off", function(){
+    thermostat.setPowerSavingOff();
+    for(var i = 0; i <= 5; i++){
+      thermostat.upTemperature();
+    }
+    expect(thermostat.temperature).toEqual(26);
+  });
+
+  it("does not allow temperature to be more than 32 degrees when power saving mode is off", function(){
+    thermostat.setPowerSavingOff();
+    for(var i=0; i<12; i++){
+      thermostat.upTemperature();
+    }
+    expect(function(){thermostat.upTemperature()}).toThrowError("Cannot increase the temperature above 32")
   });
 
 
