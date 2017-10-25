@@ -55,5 +55,37 @@ describe("Thermostat", function(){
     expect(function(){thermostat.upTemperature()}).toThrowError("Cannot increase the temperature above 32")
   });
 
+  it("#reset resets the temperature to 20 degrees", function(){
+    for(var i=0; i<4; i++){
+      thermostat.upTemperature();
+    }
+    thermostat.reset();
+    expect(thermostat.temperature).toEqual(20);
+  });
+
+  it("#energyUsage should return 'low-usage' if temperature is bellow 18", function(){
+    for(var i=0; i<4; i++){
+      thermostat.downTemperature();
+    }
+    console.log("low", thermostat.temperature);
+    expect(thermostat.energyUsage()).toEqual("low-usage");
+  });
+
+  it("#energyUsage should return 'medium-usage' if temperature is bellow 25 and above 18", function(){
+    for(var i=0; i<4; i++){
+      thermostat.upTemperature();
+    }
+    console.log("medium", thermostat.temperature);
+    expect(thermostat.energyUsage()).toEqual("medium-usage");
+  });
+
+  it("#energyUsage should return 'high-usage' if temperature is 25 and above", function(){
+    for(var i=0; i<=4; i++){
+      thermostat.upTemperature();
+    }
+    console.log("high", thermostat.temperature);
+    expect(thermostat.energyUsage()).toEqual("high-usage");
+  });
+
 
 });
