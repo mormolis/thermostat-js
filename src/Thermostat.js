@@ -1,16 +1,21 @@
 function Thermostat(){
+  this.MINIMUM_TEMPERATURE = 10;
+  this.MAXIMUM_TEMPERATURE = 32;
+  this.POWER_SAVING_MAX_TEMPERATURE = 25;
+  this.DEFAULT_TEMPERATURE = 20;
+  
   this.temperature = 20;
   this.setPowerSavingOn();
 } 
 
 Thermostat.prototype.upTemperature = function(){
-  if(this.isPowerSavingOn() && this.temperature == 25) throw Error("Power Saving Mode ON, temperature cannot be greater than 25") ;
-  if(this.temperature == 32) throw Error("Cannot increase the temperature above 32");
+  if(this.isPowerSavingOn() && this.temperature === this.POWER_SAVING_MAX_TEMPERATURE) throw Error("Power Saving Mode ON, temperature cannot be greater than 25") ;
+  if(this.temperature === this.MAXIMUM_TEMPERATURE) throw Error("Cannot increase the temperature above 32");
   this.temperature += 1;
 }
 
 Thermostat.prototype.downTemperature = function(){
-  if (this.temperature == 10) throw Error("Temperature cannot fall bellow 10");
+  if (this.temperature == this.MINIMUM_TEMPERATURE) throw Error("Temperature cannot fall bellow 10");
   this.temperature -= 1;
 }
 
@@ -27,7 +32,7 @@ Thermostat.prototype.setPowerSavingOff = function() {
 }
 
 Thermostat.prototype.reset = function() {
-  this.temperature = 20;
+  this.temperature = this.DEFAULT_TEMPERATURE;
 }
 
 Thermostat.prototype.energyUsage = function(){
