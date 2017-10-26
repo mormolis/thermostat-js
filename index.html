@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Thermostat</title>
+  <link href="https://fonts.googleapis.com/css?family=Dosis:200" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="src/Thermostat.js"></script>
+  <script src="src/manipulation.js"></script>
+
+</head>
+
+
+<body>
+  <div class="bodywrap">
+  <section>
+      <select id="current-city" class="styled-select slate">
+          <option value="">Please select a City</option>
+          <option value="London">London</option>
+          <option value="Newyork">New York</option>
+          <option value="Paris">Paris</option>
+          <option value="Tokyo">Tokyo</option>
+        </select>
+        <div id="cweather"></div>
+      
+          <span id="temperature"></span>
+          <div id="usage"></div>
+       
+ 
+      <button id="temperature-up" class="pbtn">+</button>
+      <button id="temperature-down" class="pbtn">-</button>
+      <button id="temperature-reset" class="pbtn">reset</button>
+      <p>power saving mode is
+      <span id="power-saving-status" >on</span></p>
+      <button id="powersaving-on" class="pbtn">PSM on</button>
+      <button id="powersaving-off" class="pbtn">PSM off</button>
+      
+    </section>
+
+  </div>
+</body>
+
+
+</html>

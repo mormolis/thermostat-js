@@ -1,0 +1,116 @@
+body{
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  
+  font-family: 'Dosis', sans-serif;
+  background-color: #aa2233
+}
+.bodywrap{
+  margin-top: 15%;
+  /* margin: auto; */
+
+  /* width: 550px; */
+  text-align: center; 
+  /* height: 500px; */
+  top: 50%;
+  left: 50%;
+
+
+}
+
+
+
+.styled-select {
+  radius: 50%;
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.5em;  
+  background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+  height: 29px;
+  overflow: hidden;
+  width: 240px;
+}
+
+.styled-select select {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  height: 29px;
+  padding: 5px; /* If you add too much padding here, the options won't show in IE */
+  width: 268px;
+}
+
+.styled-select.slate {
+  background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+  height: 34px;
+  width: 240px;
+}
+
+.styled-select.slate select {
+  border: 1px solid #ccc;
+  font-size: 16px;
+  height: 34px;
+  width: 268px;
+}
+
+.pbtn {
+  margin: 10px;
+  font-family: 'Dosis', sans-serif;
+  color: #fff;
+  background: rgba(0,0,0,0);
+  border: solid 3px #fff;
+  font-size: 1.5em;
+  padding: 10px 20px 10px 20px;
+  -webkit-border-radius: 50;
+  -moz-border-radius: 50;
+  border-radius: 50px;
+}
+
+.pbtn:hover {
+  border-color: #fff;
+  color: #346392;
+  background-color: #fff
+}
+
+.pbtn:active {
+  border-color: #27496d;
+  color: #27496d;
+}
+
+.low-usage {
+  background-color: rgb(34, 108, 0); 
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.medium-usage {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  background-color: black;
+}
+
+.high-usage {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  background-color: rgb(118, 0, 0); 
+}
+
+#temperature {
+  margin: auto;
+  margin-top: 30px;
+  width:60px; /* or whatever width you want. */
+  min-width:60px; /* or whatever width you want. */
+  height: 60px;
+  min-height: 60px;
+  border-radius: 100%;
+  color: white;
+  padding: 10px;
+  font-size: 2.6em;
+  display: block;
+  margin-bottom: 10px;
+  
+}
+
+#usage{
+  margin-bottom: 30px;
+}

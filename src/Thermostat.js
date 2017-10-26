@@ -20,6 +20,7 @@ Thermostat.prototype.downTemperature = function () {
 }
 
 Thermostat.prototype.setPowerSavingOn = function () {
+  if(this.temperature > this.POWER_SAVING_MAX_TEMPERATURE) this.temperature = this.POWER_SAVING_MAX_TEMPERATURE
   this._powerSaving = true;
 }
 
